@@ -26,11 +26,11 @@ public class Buyer {
             System.out.println("У меня слишком мало денег");
         } else {
             if (product == "apple") {
-                purchaseWeight = appleCost / money;
-                System.out.println("Вы купили" + purchaseWeight + "кг яблок");
+                purchaseWeight = money / appleCost;
+                System.out.println("Вы купили " + purchaseWeight + " кг яблок");
             } else if (product == "carrot") {
-                purchaseWeight = carrotCost / money;
-                System.out.println("Вы купили" + purchaseWeight + "кг морковки");
+                purchaseWeight = money / carrotCost;
+                System.out.println("Вы купили " + purchaseWeight + " кг морковки");
             } else {
                 System.out.println("В магазине нет этого продукта");
             }
@@ -50,18 +50,28 @@ public class Buyer {
 
     // Проверяю подходит ли пакет для этого количества еды
     public void checkPackageSize() {
-        if (purchaseWeight < 1 && packageSize != 'S')
-            System.out.println("Надо купить другой пакет");
-        else if((purchaseWeight>=1 ||purchaseWeight<3) && packageSize != 'M')
-            System.out.println("Надо купить другой пакет");
-        else if(purchaseWeight >= 3 && packageSize != 'L')
-            System.out.println("Надо купить другой пакет");
-        else
+        if (packageSize == 'S' || packageSize == 'M' || packageSize == 'L') {
+            if ((purchaseWeight < 1 && packageSize != 'S')) {
+                System.out.println("Надо купить другой пакет");
+            } else if (((purchaseWeight >= 1 || purchaseWeight < 3)) && packageSize != 'M') {
+                System.out.println("Надо купить другой пакет");
+            } else if ((purchaseWeight >= 3) && packageSize != 'L') {
+                System.out.println("Надо купить другой пакет");
+            } else {
+                System.out.println("У меня подходящий пакет");
+            }
+        } else {
             System.out.println("UNKNOWN PACKAGE SIZE. Correct it, please");
-
+        }
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Buyer{" +
+                "money=" + money +
+                ", packageSize=" + packageSize +
+                ", distanceToHome=" + distanceToHome +
+                ", maxLiftingWeight=" + maxLiftingWeight +
+                '}';
+    }
 }
