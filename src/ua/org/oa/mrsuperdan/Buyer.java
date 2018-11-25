@@ -64,11 +64,13 @@ public class Buyer {
             System.out.println("UNKNOWN PACKAGE SIZE. Correct it, please");
         }
     }
+    
 
     @Override
     public String toString() {
         return "Buyer{" +
-                "money=" + money +
+                "product='" + product + '\'' +
+                ", money=" + money +
                 ", packageSize=" + packageSize +
                 ", distanceToHome=" + distanceToHome +
                 ", maxLiftingWeight=" + maxLiftingWeight +
