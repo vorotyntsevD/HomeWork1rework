@@ -8,7 +8,7 @@ public class Main {
         buyer1.buySomeFood();
         buyer1.checkAbleToBringFood();
         buyer1.checkPackageSize();
-        buyer1.toString();
+        System.out.println(buyer1);
 
         System.out.println("----------------");
 
@@ -16,7 +16,7 @@ public class Main {
         buyer2.buySomeFood();
         buyer2.checkAbleToBringFood();
         buyer2.checkPackageSize();
-        buyer2.toString();
+        System.out.println(buyer2);
 
     }
 
